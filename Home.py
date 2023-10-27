@@ -3,6 +3,7 @@ import functions
 
 todos = functions.get_todos()
 
+st.set_page_config(layout="wide")
 
 def add_todo():
     todo = st.session_state["new_todo"] + "\n"
@@ -11,8 +12,9 @@ def add_todo():
 
 
 st.title("My Todo App")
-st.subheader("")
-st.write("")
+st.subheader("This is my todo app.")
+st.write("This app is to increase your <b> productivity <b>.",
+         unsafe_allow_html=True)
 
 for index, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
@@ -25,5 +27,5 @@ for index, todo in enumerate(todos):
 st.text_input(label="", placeholder="Add new todo...",
               on_change=add_todo, key='new_todo')
 
-# Run on console: streamlit run web.py
+# Run on console: streamlit run Home.py
 # Create req on console: pip freeze > requirements.txt
